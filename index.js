@@ -32,5 +32,5 @@ app.get('/', (req,res)=>{
 
 const port = process.env.Backend_PORT;
 app.listen(port,()=>{
-    console.log(`Server Running on ${process.env.DEV_MODE} Port ${port}`);
+    console.log(`Server Running `);
 });
