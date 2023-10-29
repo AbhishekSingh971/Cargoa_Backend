@@ -6,6 +6,8 @@ const auth = require("./routes/authRoutes");
 const manufacturerRoutes = require("./routes/manufacturerRoutes");
 const transporterRoutes = require("./routes/transporterRouter");
 const cors = require('cors')
+const path = require('path');
+
 
 //configure env
 dotenv.config();
@@ -16,9 +18,17 @@ connect();
 const app = express();
 
 //middelware
-app.use(cors());
+var corsOptions = {
+    origin: 'https://ecommerce-frontend-five-omega.vercel.app',
+    optionsSuccessStatus: 200,
+    AccessControlAllowOrigin: "https://ecommerce-frontend-five-omega.vercel.app"
+// some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '../build')))
+
 
 //routes
 app.use("/api/v1/auth", auth)
