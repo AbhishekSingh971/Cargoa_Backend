@@ -3,8 +3,8 @@ const morgan = require("morgan");
 const dotenv = require('dotenv');
 const connect = require('./db/db');
 const auth = require("./routes/authRoutes");
-const manufacturerRoutes = require("../backend/routes/manufacturerRoutes");
-const transporterRoutes = require("../backend/routes/transporterRouter");
+const manufacturerRoutes = require("./routes/manufacturerRoutes");
+const transporterRoutes = require("./routes/transporterRouter");
 const cors = require('cors')
 
 //configure env
