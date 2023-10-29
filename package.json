@@ -1,17 +1,16 @@
 {
   "name": "backend",
+  "author": "Abhishek",
+  "license": "ISC",
   "version": "1.0.0",
   "description": "This is for the Cargo backend",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "server": "nodemon index.js",
     "build": "npm i"
   },
-  "author": "Abhishek",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
