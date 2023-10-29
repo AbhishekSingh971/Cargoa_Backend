@@ -27,10 +27,10 @@ app.use("/api/v1/transporter",transporterRoutes )
 
 //REST api
 app.get('/', (req,res)=>{
-    res.send("<h1>This is for a testing</h1>");
+    res.send("This is for a testing");
 });
 
-const port = process.env.Backend_PORT||7001;
+const port = process.env.Backend_PORT;
 app.listen(port,()=>{
     console.log(`Server Running on ${process.env.DEV_MODE} Port ${port}`);
 });
