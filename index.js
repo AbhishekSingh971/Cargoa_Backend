@@ -8,10 +8,6 @@ const transporterRoutes = require("./routes/transporterRouter");
 const cors = require('cors')
 const path = require('path');
 
-const bodyParser = require('body-parser');
-const http = require('http');
-
-
 
 //configure env
 dotenv.config();
@@ -32,60 +28,6 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../build')))
-app.use(bodyParser.json());
-
-app.post('/sms', (req, res) => {
-    const options = {
-        method: 'POST',
-        hostname: 'https://pw92ll.api.infobip.com',
-        path: '/sms/2/text/advanced',
-        headers: {
-            'Authorization': '34d23ae2769d6a587d1a753b68a110c7-f3964584-1c46-44aa-999c-1ab1753083f4',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        maxRedirects: 20
-    };
-
-    const apiRequest = http.request(options, (apiResponse) => {
-        let chunks = [];
-
-        apiResponse.on('data', (chunk) => {
-            chunks.push(chunk);
-        });
-
-        apiResponse.on('end', () => {
-            const body = Buffer.concat(chunks);
-            console.log(body.toString());
-            res.send(body.toString());
-        });
-
-        apiResponse.on('error', (error) => {
-            console.error(error);
-            res.status(500).send('Internal Server Error');
-        });
-    });
-
-    const postData = JSON.stringify({
-        messages: [
-            {
-                destinations: [
-                    {
-                        to: '+91-9717932760'
-                    }
-                ],
-                from: 'Infobip',
-                text: 'This is a sample message',
-                language: {
-                    languageCode: 'ES'
-                }
-            }
-        ]
-    });
-
-    apiRequest.write(postData);
-    apiRequest.end();
-});
 
 
 //routes
