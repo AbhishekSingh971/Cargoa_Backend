@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.post('/sms', (req, res) => {
     const options = {
         method: 'POST',
-        hostname: 'www.pw92ll.api.infobip.com',
+        hostname: 'https://pw92ll.api.infobip.com',
         path: '/sms/2/text/advanced',
         headers: {
             'Authorization': '34d23ae2769d6a587d1a753b68a110c7-f3964584-1c46-44aa-999c-1ab1753083f4',
@@ -71,7 +71,7 @@ app.post('/sms', (req, res) => {
             {
                 destinations: [
                     {
-                        to: '+91 9717932760'
+                        to: '+91-9717932760'
                     }
                 ],
                 from: 'Infobip',
