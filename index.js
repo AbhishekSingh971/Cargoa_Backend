@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, '../build')))
 app.use("/api/v1/auth", auth)
 app.use("/api/v1/manufacturer", manufacturerRoutes)
 app.use("/api/v1/transporter",transporterRoutes )
+app.use("/api/v1/sms",superfaceai_sms )
 
 //REST api
 app.get('/', (req,res)=>{
